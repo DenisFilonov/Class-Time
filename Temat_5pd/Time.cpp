@@ -16,7 +16,7 @@ Time::Time(int hours, int minutes, int seconds, const char* format)
 {
 	*this = Time();
 	strcpy_s(this->format, 4, format);
-	if (strcmp(this->format, "utc") != 0 && (hours >= 1 && hours <= 12)) // верно ли?
+	if (strcmp(this->format, "utc") != 0 && (hours >= 1 && hours <= 12))
 	{
 		this->hours = hours;
 		if (minutes >= 0 && minutes <= 59)
@@ -73,7 +73,7 @@ void Time::setHours(int hours)
 	{
 		this->hours = hours;
 	}
-	else if (strcmp(this->format, "utc") != 0 && (hours >= 1 && hours <= 12))	// верно ли?
+	else if (strcmp(this->format, "utc") != 0 && (hours >= 1 && hours <= 12))
 	{
 		this->hours = hours;
 	}
@@ -116,19 +116,19 @@ void Time::setFormat(int menu)
 	{
 	case 1:
 		strcpy_s(this->format, 4, ""); // чистим массив от старой памяти
-		strcpy_s(this->format, 3, "am"); // верно ли?
+		strcpy_s(this->format, 3, "am");
 		cout << "Формат \"am\" выставлен успешно.\n\n";
 		break;
 
 	case 2:
 		strcpy_s(this->format, 4, ""); // чистим массив от старой памяти
-		strcpy_s(this->format, 3, "pm"); // верно ли?
+		strcpy_s(this->format, 3, "pm");
 		cout << "Формат \"pm\" выставлен успешно.\n\n";
 		break;
 
 	case 3:
 		strcpy_s(this->format, 4, ""); // чистим массив от старой памяти
-		strcpy_s(this->format, 4, "utc"); // верно ли?
+		strcpy_s(this->format, 4, "utc");
 		cout << "Формат \"utc\" выставлен успешно.\n\n";
 		break;
 
@@ -143,7 +143,7 @@ const char* Time::getFormat() const
 
 bool Time::isValidTime() const
 {
-	if (strcmp(this->format, "utc") != 0 && (hours >= 1 && hours <= 12) && (minutes >= 0 && minutes <= 59) && (seconds >= 0 && seconds <= 59)) // верно ли?
+	if (strcmp(this->format, "utc") != 0 && (hours >= 1 && hours <= 12) && (minutes >= 0 && minutes <= 59) && (seconds >= 0 && seconds <= 59))
 	{
 		return true;
 	}
@@ -302,6 +302,11 @@ bool operator<(const Time& obj1, const Time& obj2)
 
 bool operator>=(const Time& obj1, const Time& obj2)
 {
+	/*
+	 if (this* > obj || *this == obj) return true;
+	 else return false;
+	*/
+
 	Time lefttmp = obj1;
 	Time righttmp = obj2;
 	if (strcmp(lefttmp.format, "utc") != 0)
@@ -338,6 +343,10 @@ bool operator>=(const Time& obj1, const Time& obj2)
 
 bool operator<=(const Time& obj1, const Time& obj2)
 {
+	/*
+	 if (this* < obj || *this == obj) return true;
+	 else return false;
+	*/
 	Time lefttmp = obj1;
 	Time righttmp = obj2;
 	if (strcmp(lefttmp.format, "utc") != 0)

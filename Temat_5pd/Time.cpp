@@ -9,6 +9,7 @@ Time::Time()
 	hours = obj->tm_hour;
 	minutes = obj->tm_min;
 	seconds = obj->tm_sec;
+	strcpy_s(this->format, 4, "utc");
 	delete obj;
 }
 
@@ -64,7 +65,7 @@ Time& Time::operator=(const Time& obj)
 
 Time::~Time()
 {
-	//Тут пусто, бо нет дин.строк
+	//“ут пусто, бо нет дин.строк
 }
 
 void Time::setHours(int hours)
@@ -115,24 +116,24 @@ void Time::setFormat(int menu)
 	switch (menu)
 	{
 	case 1:
-		strcpy_s(this->format, 4, ""); // чистим массив от старой памяти
+		strcpy_s(this->format, 4, ""); // чистим массив от старой пам¤ти
 		strcpy_s(this->format, 3, "am");
-		cout << "Формат \"am\" выставлен успешно.\n\n";
+		cout << "‘ормат \"am\" выставлен успешно.\n\n";
 		break;
 
 	case 2:
-		strcpy_s(this->format, 4, ""); // чистим массив от старой памяти
+		strcpy_s(this->format, 4, ""); // чистим массив от старой пам¤ти
 		strcpy_s(this->format, 3, "pm");
-		cout << "Формат \"pm\" выставлен успешно.\n\n";
+		cout << "‘ормат \"pm\" выставлен успешно.\n\n";
 		break;
 
 	case 3:
-		strcpy_s(this->format, 4, ""); // чистим массив от старой памяти
+		strcpy_s(this->format, 4, ""); // чистим массив от старой пам¤ти
 		strcpy_s(this->format, 4, "utc");
-		cout << "Формат \"utc\" выставлен успешно.\n\n";
+		cout << "‘ормат \"utc\" выставлен успешно.\n\n";
 		break;
 
-	default: if (menu > 3 && menu != 0 || menu < 0) cout << "Неверно выбран пункт меню.\n\n"; break;
+	default: if (menu > 3 && menu != 0 || menu < 0) cout << "Ќеверно выбран пункт меню.\n\n"; break;
 	}
 }
 
@@ -192,7 +193,7 @@ void Time::untickTime()
 
 void Time::showTime() const
 {
-	cout << "\nВремя: " << hours / 10 << hours % 10 << ":" << minutes / 10 << minutes % 10 << ":" << seconds / 10 << seconds % 10;
+	cout << "\n¬рем¤: " << hours / 10 << hours % 10 << ":" << minutes / 10 << minutes % 10 << ":" << seconds / 10 << seconds % 10;
 }
 
 bool operator==(const Time& obj1, const Time& obj2)

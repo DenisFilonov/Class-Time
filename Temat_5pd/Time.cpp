@@ -327,18 +327,22 @@ bool operator>=(const Time& obj1, const Time& obj2)
 		strcpy_s(righttmp.format, 4, "utc");
 	}
 
-	if (lefttmp.hours >= righttmp.hours)
+	if (lefttmp.hours > righttmp.hours)
 	{
 		return true;
 	}
-	else if (lefttmp.hours == righttmp.hours && lefttmp.minutes >= righttmp.minutes)
+	else if (lefttmp.hours == righttmp.hours && lefttmp.minutes > righttmp.minutes)
 	{
 		return true;
 	}
-	else if (lefttmp.hours == righttmp.hours && lefttmp.minutes == righttmp.minutes && lefttmp.seconds >= righttmp.seconds)
+	else if (lefttmp.hours == righttmp.hours && lefttmp.minutes == righttmp.minutes && lefttmp.seconds > righttmp.seconds)
 	{
 		return true;
 	}
+	else if (lefttmp.hours == righttmp.hours && lefttmp.minutes == righttmp.minutes && lefttmp.seconds == righttmp.seconds)
+	{
+		return true;	}
+
 	else return false;
 }
 
@@ -367,15 +371,19 @@ bool operator<=(const Time& obj1, const Time& obj2)
 		strcpy_s(righttmp.format, 4, "utc");
 	}
 
-	if (lefttmp.hours <= righttmp.hours)
+	if (lefttmp.hours < righttmp.hours)
 	{
 		return true;
 	}
-	else if (lefttmp.hours == righttmp.hours && lefttmp.minutes <= righttmp.minutes)
+	else if (lefttmp.hours == righttmp.hours && lefttmp.minutes < righttmp.minutes)
 	{
 		return true;
 	}
-	else if (lefttmp.hours == righttmp.hours && lefttmp.minutes == righttmp.minutes && lefttmp.seconds <= righttmp.seconds)
+	else if (lefttmp.hours == righttmp.hours && lefttmp.minutes == righttmp.minutes && lefttmp.seconds < righttmp.seconds)
+	{
+		return true;
+	}
+	else if (lefttmp.hours == righttmp.hours && lefttmp.minutes == righttmp.minutes && lefttmp.seconds == righttmp.seconds)
 	{
 		return true;
 	}
